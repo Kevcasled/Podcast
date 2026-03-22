@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//f/OneDrive - Centre d''''''''Estudis Monlau/2DAW/Diseño/Podcast/**)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
