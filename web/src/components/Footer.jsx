@@ -1,39 +1,103 @@
 export default function Footer() {
+  const year = new Date().getFullYear()
+
   return (
-    <footer className="relative border-t border-white/5 px-6 py-10 mt-auto">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <span className="w-7 h-7 rounded-lg bg-green-400 flex items-center justify-center text-gray-950 font-bold text-xs font-mono">KP</span>
-            <span className="text-white font-semibold">
-              Kev<span className="text-green-400">Podcast</span>
-            </span>
+    <footer
+      role="contentinfo"
+      className="relative py-10 mt-auto"
+      style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+    >
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}>
+
+        {/* Top row */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-8">
+
+          {/* Logo + prompt */}
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <div
+                className="w-7 h-7 flex items-center justify-center text-xs font-bold"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  color: 'var(--green)',
+                  border: '1px solid var(--green)',
+                  background: 'rgba(57,255,106,0.06)',
+                  clipPath: 'polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px))',
+                }}
+                aria-hidden="true"
+              >
+                KP
+              </div>
+              <span
+                className="font-bold text-sm"
+                style={{ fontFamily: 'var(--font-display)', color: '#fff' }}
+              >
+                Kev<span style={{ color: 'var(--green)' }}>Podcast</span>
+              </span>
+            </div>
+            <p
+              className="text-xs cursor-blink"
+              style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.2)' }}
+            >
+              kev@podcast:~$
+            </p>
           </div>
 
-          {/* Links */}
-          <nav className="flex gap-6 text-sm text-gray-500">
-            {['#home', '#episodios', '#produccion', '#contacto'].map((href) => (
-              <a key={href} href={href} className="hover:text-green-400 transition-colors capitalize">
-                {href.replace('#', '')}
+          {/* Nav */}
+          <nav aria-label="Navegación footer" className="flex flex-wrap gap-x-6 gap-y-2">
+            {[
+              { href: '#home',       label: 'inicio' },
+              { href: '#episodios',  label: 'episodios' },
+              { href: '#produccion', label: 'producción' },
+              { href: '#contacto',   label: 'contacto' },
+            ].map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="text-xs transition-colors duration-150"
+                style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.3)' }}
+                onMouseEnter={e => e.currentTarget.style.color = 'var(--green)'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.3)'}
+              >
+                ./{label}
               </a>
             ))}
           </nav>
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/8 to-transparent mb-6" />
+        <div
+          className="mb-6 h-px"
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }}
+          aria-hidden="true"
+        />
 
         {/* Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-600">
-          <p>© 2026 KevPodcast. Hecho con React + Tailwind.</p>
-          <p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-xs" style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.2)' }}>
+            © {year} KevPodcast — React + Vite + Tailwind CSS
+          </p>
+          <p className="text-xs" style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.2)' }}>
             Bajo licencia{' '}
-            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="text-green-400/70 hover:text-green-400 transition-colors">
+            <a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'rgba(57,255,106,0.5)' }}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--green)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(57,255,106,0.5)'}
+            >
               CC BY 4.0
             </a>
             {' '}· Música:{' '}
-            <a href="https://freemusicarchive.org" target="_blank" rel="noopener noreferrer" className="text-green-400/70 hover:text-green-400 transition-colors">
+            <a
+              href="https://freemusicarchive.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'rgba(57,255,106,0.5)' }}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--green)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(57,255,106,0.5)'}
+            >
               Free Music Archive
             </a>
           </p>

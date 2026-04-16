@@ -2,126 +2,261 @@ import AudioPlayer from './AudioPlayer'
 
 export default function Home() {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 overflow-hidden">
-
-      {/* Fondo con gradientes */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-green-500/8 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-emerald-500/6 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-900/5 rounded-full blur-3xl" />
-        {/* Grid sutil */}
+    <section
+      id="home"
+      aria-label="Presentación"
+      className="relative min-h-screen flex flex-col justify-center pt-28 pb-16 terminal-grid"
+      style={{ overflowX: 'hidden' }}
+    >
+      {/* Capas de fondo */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        {/* Gradiente radial verde muy sutil */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute"
           style={{
-            backgroundImage: 'linear-gradient(#4ade80 1px, transparent 1px), linear-gradient(90deg, #4ade80 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
+            top: '10%', left: '-10%',
+            width: '60%', height: '70%',
+            background: 'radial-gradient(ellipse, rgba(57,255,106,0.04) 0%, transparent 70%)',
+          }}
+        />
+        {/* Gradiente rojo contrapunto */}
+        <div
+          className="absolute"
+          style={{
+            bottom: '10%', right: '-5%',
+            width: '40%', height: '50%',
+            background: 'radial-gradient(ellipse, rgba(255,59,59,0.04) 0%, transparent 70%)',
+          }}
+        />
+        {/* Línea horizontal decorativa */}
+        <div
+          className="absolute left-0 right-0"
+          style={{
+            top: '50%',
+            height: '1px',
+            background: 'linear-gradient(90deg, transparent 0%, rgba(57,255,106,0.07) 30%, rgba(57,255,106,0.07) 70%, transparent 100%)',
           }}
         />
       </div>
 
-      <div className="relative max-w-5xl mx-auto w-full flex flex-col md:flex-row items-center gap-16">
+      <div className="relative w-full" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}>
 
-        {/* Texto izquierda */}
-        <div className="flex-1 text-left">
-          <div className="animate-fade-up flex items-center gap-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-green-400 pulse-green" />
-            <span className="text-green-400 font-mono text-xs tracking-widest uppercase">
-              Nuevo episodio disponible
-            </span>
-          </div>
+        {/* Label superior */}
+        <div className="anim-fade-up flex items-center gap-3 mb-10">
+          <span
+            className="w-2 h-2 rounded-full pulse-dot"
+            style={{ background: 'var(--green)' }}
+            aria-hidden="true"
+          />
+          <span
+            className="text-xs tracking-[0.25em] uppercase"
+            style={{ fontFamily: 'var(--font-mono)', color: 'var(--green)' }}
+          >
+            ./nuevo episodio disponible
+          </span>
+        </div>
 
-          <h1 className="animate-fade-up-delay-1 text-6xl md:text-7xl font-extrabold leading-none tracking-tight mb-4">
-            <span className="text-white">Kev</span>
-            <span
-              className="text-transparent bg-clip-text"
-              style={{ backgroundImage: 'linear-gradient(135deg, #4ade80, #22d3ee)' }}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '2.5rem', flexWrap: 'wrap' }}
+          className="home-hero-row">
+
+          {/* ── Columna izquierda: Texto ── */}
+          <div className="flex-1" style={{ minWidth: 0 }}>
+
+            {/* Título principal */}
+            <h1
+              className="anim-delay-1 leading-none tracking-tighter mb-8"
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2.8rem, 8vw, 7rem)',
+                fontWeight: 800,
+                letterSpacing: '-0.03em',
+              }}
             >
-              Podcast
-            </span>
-          </h1>
-
-          <p className="animate-fade-up-delay-2 text-gray-400 text-lg leading-relaxed mb-8 max-w-md">
-            Tecnología sin filtros. Programación, ciberseguridad y cultura tech
-            desde la perspectiva de alguien que todavía está aprendiendo.
-          </p>
-
-          <div className="animate-fade-up-delay-3 flex flex-wrap gap-3 mb-10">
-            {['Ciberseguridad', 'Series Tech', 'Programación', 'DAW'].map((tag) => (
+              <span style={{ color: '#fff', display: 'block', marginBottom: '0.05em' }}>KEV</span>
               <span
-                key={tag}
-                className="px-3 py-1 bg-white/5 border border-white/10 text-gray-400 text-xs rounded-full hover:border-green-400/40 hover:text-green-400 transition-all cursor-default"
+                className="relative inline-block"
+                style={{ color: 'var(--green)' }}
               >
-                {tag}
+                PODCAST
+                {/* Línea decorativa roja */}
+                <span
+                  className="absolute -bottom-3 left-0"
+                  style={{
+                    width: '40%',
+                    height: '3px',
+                    background: 'var(--red)',
+                    display: 'block',
+                  }}
+                  aria-hidden="true"
+                />
               </span>
-            ))}
+            </h1>
+
+            {/* Subtítulo */}
+            <p
+              className="anim-delay-3 mt-8 text-base leading-relaxed max-w-sm"
+              style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.45)', fontWeight: 300 }}
+            >
+              Tecnología sin filtros. Programación, ciberseguridad y cultura tech
+              desde la perspectiva de alguien que todavía está aprendiendo.
+            </p>
+
+            {/* Tags */}
+            <div className="anim-delay-4 flex flex-wrap gap-2 mt-6 mb-10">
+              {['Ciberseguridad', 'Series Tech', 'Programación', 'DAW'].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-3 py-1 transition-colors duration-200 cursor-default"
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    color: 'rgba(255,255,255,0.3)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    borderRadius: '2px',
+                  }}
+                >
+                  #{tag.toLowerCase().replace(' ', '-')}
+                </span>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <div className="anim-delay-5 flex flex-wrap gap-3">
+              <a
+                href="#episodios"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  background: 'var(--green)',
+                  color: '#04060a',
+                  clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))',
+                }}
+              >
+                <span aria-hidden="true">▶</span> escuchar ahora
+              </a>
+              <a
+                href="#contacto"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm transition-all duration-200 hover:border-green-400/50"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  color: 'rgba(255,255,255,0.4)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  borderRadius: '2px',
+                }}
+              >
+                $ participar
+              </a>
+            </div>
           </div>
 
-          <div className="animate-fade-up-delay-4 flex gap-3">
-            <a
-              href="#episodios"
-              className="px-6 py-3 bg-green-400 text-gray-950 font-semibold rounded-xl hover:bg-green-300 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-green-400/20"
+          {/* ── Columna derecha: Cover CRT + Player ── */}
+          <div className="anim-delay-3" style={{ width: '100%', maxWidth: '300px', flexShrink: 0, minWidth: 0 }}>
+
+            {/* Cover art estilo CRT/monitor */}
+            <div
+              className="relative aspect-square mb-4 overflow-hidden scanlines crt-glow"
+              style={{
+                background: 'linear-gradient(145deg, #080f08 0%, #0d1f0d 40%, #080d14 100%)',
+                border: '1px solid rgba(57,255,106,0.2)',
+                borderRadius: '4px',
+              }}
+              aria-hidden="true"
             >
-              Escuchar ahora
-            </a>
-            <a
-              href="#contacto"
-              className="px-6 py-3 bg-white/5 border border-white/10 text-gray-300 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all"
-            >
-              Participar
-            </a>
+              {/* Scan line animada */}
+              <div
+                className="absolute left-0 right-0 pointer-events-none z-10"
+                style={{
+                  height: '2px',
+                  background: 'linear-gradient(90deg, transparent, rgba(57,255,106,0.4), transparent)',
+                  animation: 'scan 3s linear infinite',
+                }}
+              />
+
+              {/* Patrón de puntos */}
+              <div
+                className="absolute inset-0 opacity-20"
+                style={{
+                  backgroundImage: 'radial-gradient(circle, rgba(57,255,106,0.6) 1px, transparent 1px)',
+                  backgroundSize: '18px 18px',
+                }}
+              />
+
+              {/* Contenido central */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+                <div
+                  className="w-20 h-20 flex items-center justify-center mb-4"
+                  style={{
+                    border: '1px solid rgba(57,255,106,0.4)',
+                    background: 'rgba(57,255,106,0.06)',
+                    clipPath: 'polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))',
+                  }}
+                >
+                  <svg className="w-9 h-9" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" stroke="rgba(57,255,106,0.6)" strokeWidth="1" />
+                    <path d="M10 8l6 4-6 4V8z" fill="rgba(57,255,106,0.8)" />
+                  </svg>
+                </div>
+                <p
+                  className="font-display font-800 text-lg tracking-widest"
+                  style={{ fontFamily: 'var(--font-display)', color: 'rgba(57,255,106,0.9)', letterSpacing: '0.15em' }}
+                >
+                  KEVPODCAST
+                </p>
+                <p
+                  className="text-xs mt-1 tracking-widest"
+                  style={{ fontFamily: 'var(--font-mono)', color: 'rgba(57,255,106,0.4)' }}
+                >
+                  EP_01 · 2026
+                </p>
+
+                {/* Esquinas decorativas */}
+                <div className="absolute top-4 left-4 w-6 h-6" style={{ borderTop: '1px solid rgba(57,255,106,0.4)', borderLeft: '1px solid rgba(57,255,106,0.4)' }} />
+                <div className="absolute top-4 right-4 w-6 h-6" style={{ borderTop: '1px solid rgba(57,255,106,0.4)', borderRight: '1px solid rgba(57,255,106,0.4)' }} />
+                <div className="absolute bottom-4 left-4 w-6 h-6" style={{ borderBottom: '1px solid rgba(57,255,106,0.4)', borderLeft: '1px solid rgba(57,255,106,0.4)' }} />
+                <div className="absolute bottom-4 right-4 w-6 h-6" style={{ borderBottom: '1px solid rgba(57,255,106,0.4)', borderRight: '1px solid rgba(57,255,106,0.4)' }} />
+              </div>
+            </div>
+
+            {/* Player */}
+            <AudioPlayer
+              src="/audio/ep01.mp3"
+              title="EP.01 — ¿Es Mr. Robot real?"
+              duration="9:42"
+            />
           </div>
         </div>
 
-        {/* Cover + reproductor derecha */}
-        <div className="flex-1 w-full max-w-sm animate-fade-up-delay-2">
-          {/* Cover art */}
-          <div className="relative aspect-square rounded-2xl mb-4 overflow-hidden group">
-            {/* Fondo con gradiente */}
-            <div
-              className="absolute inset-0"
-              style={{ background: 'linear-gradient(135deg, #0a1f0a 0%, #0d2b1d 50%, #0a1520 100%)' }}
-            />
-            {/* Patrón */}
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: 'radial-gradient(circle, #4ade80 1px, transparent 1px)',
-                backgroundSize: '24px 24px',
-              }}
-            />
-            {/* Círculos decorativos */}
-            <div className="absolute top-8 left-8 w-32 h-32 rounded-full border border-green-400/20" />
-            <div className="absolute top-12 left-12 w-24 h-24 rounded-full border border-green-400/15" />
-            <div className="absolute bottom-8 right-8 w-24 h-24 rounded-full border border-cyan-400/15" />
-            {/* Contenido central */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <div className="w-20 h-20 rounded-2xl bg-green-400/10 border border-green-400/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-10 h-10 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
-                </svg>
-              </div>
-              <p className="text-white font-bold text-lg tracking-tight">KevPodcast</p>
-              <p className="text-gray-500 text-xs font-mono mt-1">EP.01 · 2026</p>
+        {/* Stats / meta info */}
+        <div
+          className="anim-delay-5 mt-16 pt-8 flex flex-wrap gap-8"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+        >
+          {[
+            { label: 'episodios', value: '01' },
+            { label: 'duración',  value: '9m 42s' },
+            { label: 'temporada', value: '2026' },
+          ].map(({ label, value }) => (
+            <div key={label}>
+              <p className="text-xs mb-1" style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.2)' }}>
+                {label}
+              </p>
+              <p className="text-xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'rgba(255,255,255,0.7)' }}>
+                {value}
+              </p>
             </div>
-            {/* Brillo superior */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-400/40 to-transparent" />
-          </div>
-
-          {/* Player */}
-          <AudioPlayer
-            src="/audio/ep01.mp3"
-            title="EP.01 — ¿Es Mr. Robot real?"
-            duration="9:42"
-          />
+          ))}
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-gray-600 text-xs font-mono">scroll</span>
-        <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+        aria-hidden="true"
+      >
+        <span className="text-xs" style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.2)' }}>scroll</span>
+        <div
+          className="w-px h-8"
+          style={{ background: 'linear-gradient(to bottom, rgba(57,255,106,0.3), transparent)' }}
+        />
       </div>
     </section>
   )
