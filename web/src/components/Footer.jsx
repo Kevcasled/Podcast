@@ -9,10 +9,8 @@ export default function Footer() {
     >
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}>
 
-        {/* Top row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-8">
 
-          {/* Logo + prompt */}
           <div>
             <div className="flex items-center gap-3 mb-2">
               <div
@@ -43,7 +41,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Nav */}
           <nav aria-label="Navegación footer" className="flex flex-wrap gap-x-6 gap-y-2">
             {[
               { href: '#home',       label: 'inicio' },
@@ -55,9 +52,9 @@ export default function Footer() {
                 key={href}
                 href={href}
                 className="text-xs transition-colors duration-150"
-                style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.3)' }}
+                style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.65)' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'var(--green)'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.3)'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.65)'}
               >
                 ./{label}
               </a>
@@ -65,14 +62,12 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Divider */}
         <div
           className="mb-6 h-px"
           style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }}
           aria-hidden="true"
         />
 
-        {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-xs" style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.2)' }}>
             © {year} KevPodcast — React + Vite + Tailwind CSS

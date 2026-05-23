@@ -44,7 +44,6 @@ export default function Navbar() {
     >
       <div className="flex items-center justify-between" style={{ maxWidth: '1400px', margin: '0 auto', padding: '16px clamp(1.25rem, 5vw, 3rem)' }}>
 
-        {/* Logo */}
         <a href="#home" className="flex items-center gap-3 group" aria-label="KevPodcast — inicio">
           <div
             className="w-8 h-8 flex items-center justify-center text-xs font-bold border"
@@ -66,7 +65,6 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Nav desktop */}
         <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-1">
           {links.map(({ href, label, cmd }) => {
             const id = href.replace('#', '')
@@ -78,7 +76,7 @@ export default function Navbar() {
                 className="group flex items-center gap-1 px-3 py-1.5 text-xs transition-all duration-200 rounded"
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  color: isActive ? 'var(--green)' : 'rgba(255,255,255,0.4)',
+                  color: isActive ? 'var(--green)' : 'rgba(255,255,255,0.75)',
                   background: isActive ? 'rgba(57,255,106,0.07)' : 'transparent',
                   border: isActive ? '1px solid rgba(57,255,106,0.2)' : '1px solid transparent',
                 }}
@@ -91,7 +89,6 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Botón móvil */}
         <button
           className="md:hidden p-2 rounded"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -108,7 +105,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Menú móvil */}
       {menuOpen && (
         <nav
           aria-label="Menú móvil"

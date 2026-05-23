@@ -8,9 +8,7 @@ export default function Home() {
       className="relative min-h-screen flex flex-col justify-center pt-28 pb-16 terminal-grid"
       style={{ overflowX: 'hidden' }}
     >
-      {/* Capas de fondo */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Gradiente radial verde muy sutil */}
         <div
           className="absolute"
           style={{
@@ -19,7 +17,6 @@ export default function Home() {
             background: 'radial-gradient(ellipse, rgba(57,255,106,0.04) 0%, transparent 70%)',
           }}
         />
-        {/* Gradiente rojo contrapunto */}
         <div
           className="absolute"
           style={{
@@ -28,7 +25,6 @@ export default function Home() {
             background: 'radial-gradient(ellipse, rgba(255,59,59,0.04) 0%, transparent 70%)',
           }}
         />
-        {/* Línea horizontal decorativa */}
         <div
           className="absolute left-0 right-0"
           style={{
@@ -41,7 +37,6 @@ export default function Home() {
 
       <div className="relative w-full" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}>
 
-        {/* Label superior */}
         <div className="anim-fade-up flex items-center gap-3 mb-10">
           <span
             className="w-2 h-2 rounded-full pulse-dot"
@@ -59,10 +54,8 @@ export default function Home() {
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '2.5rem', flexWrap: 'wrap' }}
           className="home-hero-row">
 
-          {/* ── Columna izquierda: Texto ── */}
           <div className="flex-1" style={{ minWidth: 0 }}>
 
-            {/* Título principal */}
             <h1
               className="anim-delay-1 leading-none tracking-tighter mb-8"
               style={{
@@ -78,7 +71,6 @@ export default function Home() {
                 style={{ color: 'var(--green)' }}
               >
                 PODCAST
-                {/* Línea decorativa roja */}
                 <span
                   className="absolute -bottom-3 left-0"
                   style={{
@@ -92,16 +84,14 @@ export default function Home() {
               </span>
             </h1>
 
-            {/* Subtítulo */}
             <p
               className="anim-delay-3 mt-8 text-base leading-relaxed max-w-sm"
-              style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.45)', fontWeight: 300 }}
+              style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.65)', fontWeight: 300 }}
             >
               Tecnología sin filtros. Programación, ciberseguridad y cultura tech
               desde la perspectiva de alguien que todavía está aprendiendo.
             </p>
 
-            {/* Tags */}
             <div className="anim-delay-4 flex flex-wrap gap-2 mt-6 mb-10">
               {['Ciberseguridad', 'Series Tech', 'Programación', 'DAW'].map((tag) => (
                 <span
@@ -109,7 +99,7 @@ export default function Home() {
                   className="text-xs px-3 py-1 transition-colors duration-200 cursor-default"
                   style={{
                     fontFamily: 'var(--font-mono)',
-                    color: 'rgba(255,255,255,0.3)',
+                    color: 'rgba(255,255,255,0.65)',
                     border: '1px solid rgba(255,255,255,0.08)',
                     borderRadius: '2px',
                   }}
@@ -119,7 +109,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* CTAs */}
             <div className="anim-delay-5 flex flex-wrap gap-3">
               <a
                 href="#episodios"
@@ -138,7 +127,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm transition-all duration-200 hover:border-green-400/50"
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  color: 'rgba(255,255,255,0.4)',
+                  color: 'rgba(255,255,255,0.65)',
                   border: '1px solid rgba(255,255,255,0.12)',
                   borderRadius: '2px',
                 }}
@@ -148,10 +137,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ── Columna derecha: Cover CRT + Player ── */}
           <div className="anim-delay-3" style={{ width: '100%', maxWidth: '300px', flexShrink: 0, minWidth: 0 }}>
 
-            {/* Cover art estilo CRT/monitor */}
             <div
               className="relative aspect-square mb-4 overflow-hidden scanlines crt-glow"
               style={{
@@ -161,7 +148,6 @@ export default function Home() {
               }}
               aria-hidden="true"
             >
-              {/* Scan line animada */}
               <div
                 className="absolute left-0 right-0 pointer-events-none z-10"
                 style={{
@@ -171,7 +157,6 @@ export default function Home() {
                 }}
               />
 
-              {/* Patrón de puntos */}
               <div
                 className="absolute inset-0 opacity-20"
                 style={{
@@ -180,7 +165,6 @@ export default function Home() {
                 }}
               />
 
-              {/* Contenido central */}
               <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
                 <div
                   className="w-20 h-20 flex items-center justify-center mb-4"
@@ -208,7 +192,6 @@ export default function Home() {
                   EP_01 · 2026
                 </p>
 
-                {/* Esquinas decorativas */}
                 <div className="absolute top-4 left-4 w-6 h-6" style={{ borderTop: '1px solid rgba(57,255,106,0.4)', borderLeft: '1px solid rgba(57,255,106,0.4)' }} />
                 <div className="absolute top-4 right-4 w-6 h-6" style={{ borderTop: '1px solid rgba(57,255,106,0.4)', borderRight: '1px solid rgba(57,255,106,0.4)' }} />
                 <div className="absolute bottom-4 left-4 w-6 h-6" style={{ borderBottom: '1px solid rgba(57,255,106,0.4)', borderLeft: '1px solid rgba(57,255,106,0.4)' }} />
@@ -216,7 +199,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Player */}
             <AudioPlayer
               src="/audio/ep01.mp3"
               title="EP.01 — ¿Es Mr. Robot real?"
@@ -225,7 +207,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Stats / meta info */}
         <div
           className="anim-delay-5 mt-16 pt-8 flex flex-wrap gap-8"
           style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
@@ -247,7 +228,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
         aria-hidden="true"

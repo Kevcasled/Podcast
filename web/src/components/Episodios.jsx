@@ -50,7 +50,6 @@ function SectionHeader({ eyebrow, title }) {
 export default function Episodios() {
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Separador top */}
       <div
         className="absolute top-0 left-6 right-6 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, rgba(57,255,106,0.15), transparent)' }}
@@ -59,7 +58,6 @@ export default function Episodios() {
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}>
 
-        {/* ── EPISODIOS ── */}
         <div id="episodios" className="mb-28">
           <div className="flex items-end justify-between mb-12">
             <SectionHeader eyebrow="escuchar" title="Episodios" />
@@ -84,7 +82,6 @@ export default function Episodios() {
                 onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(57,255,106,0.2)'}
                 onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'}
               >
-                {/* Línea verde izquierda */}
                 <div
                   className="absolute left-0 top-4 bottom-4 w-px opacity-0 group-hover:opacity-100 transition-opacity"
                   style={{ background: 'var(--green)' }}
@@ -93,7 +90,6 @@ export default function Episodios() {
 
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
 
-                  {/* Número */}
                   <div
                     className="flex-shrink-0 w-14 h-14 flex items-center justify-center"
                     style={{
@@ -111,7 +107,6 @@ export default function Episodios() {
                     </span>
                   </div>
 
-                  {/* Info */}
                   <div className="flex-1 min-w-0">
                     <h3
                       className="text-lg font-semibold mb-1"
@@ -121,7 +116,7 @@ export default function Episodios() {
                     </h3>
                     <p
                       className="text-sm leading-relaxed mb-3"
-                      style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.4)' }}
+                      style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.65)' }}
                     >
                       {ep.description}
                     </p>
@@ -157,24 +152,20 @@ export default function Episodios() {
                     </div>
                   </div>
 
-                  {/* Player */}
                   <div className="w-full lg:w-64 flex-shrink-0 min-w-0">
                     <AudioPlayer src={ep.src} title={ep.title} duration={ep.duration} />
                   </div>
                 </div>
 
-                {/* Transcripción */}
                 <Transcripcion episodeTitle={ep.title} />
               </article>
             ))}
           </div>
         </div>
 
-        {/* ── PRODUCCIÓN ── */}
         <div id="produccion">
           <SectionHeader eyebrow="detrás del micrófono" title="Cómo se produce" />
 
-          {/* Pasos */}
           <div className="grid md:grid-cols-2 gap-3 mb-14">
             {steps.map((item) => (
               <div
@@ -202,7 +193,7 @@ export default function Episodios() {
                   >
                     {item.title}
                   </h4>
-                  <p className="text-sm leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.38)' }}>
+                  <p className="text-sm leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.65)' }}>
                     {item.desc}
                   </p>
                 </div>
@@ -210,7 +201,6 @@ export default function Episodios() {
             ))}
           </div>
 
-          {/* Stack */}
           <p
             className="text-xs uppercase tracking-widest mb-5"
             style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.25)' }}
@@ -245,7 +235,7 @@ export default function Episodios() {
                 </span>
                 <div>
                   <p className="text-sm font-medium leading-none mb-0.5" style={{ color: '#fff' }}>{tool.name}</p>
-                  <p className="text-xs" style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.3)' }}>{tool.desc}</p>
+                  <p className="text-xs" style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.65)' }}>{tool.desc}</p>
                 </div>
               </div>
             ))}

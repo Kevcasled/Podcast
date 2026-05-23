@@ -51,7 +51,6 @@ export default function Transcripcion({ episodeTitle }) {
         overflow: 'hidden',
       }}
     >
-      {/* Toggle */}
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
@@ -90,7 +89,6 @@ export default function Transcripcion({ episodeTitle }) {
         </span>
       </button>
 
-      {/* Contenido */}
       {open && (
         <article
           id="transcripcion-content"
@@ -111,7 +109,6 @@ export default function Transcripcion({ episodeTitle }) {
           <div className="flex flex-col gap-6">
             {segments.map((seg) => (
               <section key={seg.id} aria-label={seg.label}>
-                {/* Cabecera del segmento */}
                 <div className="flex items-center gap-3 mb-3">
                   <time
                     dateTime={`PT${seg.time.replace(':', 'M')}S`}
@@ -130,19 +127,18 @@ export default function Transcripcion({ episodeTitle }) {
                     className="text-xs uppercase tracking-widest"
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      color: 'rgba(255,255,255,0.35)',
+                      color: 'rgba(255,255,255,0.65)',
                     }}
                   >
                     {seg.label}
                   </h4>
                 </div>
 
-                {/* Texto */}
                 <p
                   className="text-sm leading-relaxed"
                   style={{
                     fontFamily: 'var(--font-body)',
-                    color: 'rgba(255,255,255,0.55)',
+                    color: 'rgba(255,255,255,0.65)',
                     paddingLeft: '0.5rem',
                     borderLeft: '1px solid rgba(255,255,255,0.08)',
                   }}

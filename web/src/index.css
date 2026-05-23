@@ -18,6 +18,31 @@
   --font-body:    'DM Sans', sans-serif;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: #39ff6a;
+  color: #04060a;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 2px solid #39ff6a;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -38,7 +63,6 @@ body {
 
 ::selection { background: rgba(57,255,106,0.2); color: var(--green); }
 
-/* Efecto scanlines (cover CRT en Home) */
 .scanlines::after {
   content: '';
   position: absolute;
@@ -54,12 +78,10 @@ body {
   z-index: 1;
 }
 
-/* Glow verde (cover CRT en Home) */
 .crt-glow {
   box-shadow: 0 0 40px rgba(57,255,106,0.08), inset 0 0 60px rgba(57,255,106,0.04);
 }
 
-/* Grid de fondo (sección Home) */
 .terminal-grid {
   background-image:
     linear-gradient(rgba(57,255,106,0.04) 1px, transparent 1px),
@@ -67,7 +89,6 @@ body {
   background-size: 40px 40px;
 }
 
-/* Animaciones */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -95,7 +116,6 @@ body {
 .anim-delay-4 { animation: fadeUp .5s ease .50s both; }
 .anim-delay-5 { animation: fadeUp .5s ease .65s both; }
 
-/* Cursor parpadeante (Footer) */
 .cursor-blink::after {
   content: '█';
   font-family: var(--font-mono);
@@ -105,10 +125,8 @@ body {
   margin-left: 2px;
 }
 
-/* Punto pulsante (Home hero) */
 .pulse-dot { animation: pulse-dot 2s infinite; }
 
-/* Hero layout responsive */
 @media (min-width: 900px) {
   .home-hero-row {
     flex-direction: row !important;
@@ -118,5 +136,24 @@ body {
   .home-hero-row > div:first-child {
     flex: 1;
     min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .anim-fade-up,
+  .anim-delay-1,
+  .anim-delay-2,
+  .anim-delay-3,
+  .anim-delay-4,
+  .anim-delay-5 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

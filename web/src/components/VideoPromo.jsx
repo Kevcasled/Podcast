@@ -1,9 +1,6 @@
 export default function VideoPromo() {
-  // Cuando tengas el vídeo, pon la ruta aquí:
-  // opción A — archivo local: src="/video/promo.mp4"
-  // opción B — YouTube: cambia <video> por el iframe de abajo
   const localVideo = '/video/promo.mp4'
-  const hasVideo = false // cambia a true cuando subas el archivo
+  const hasVideo = false
 
   return (
     <section
@@ -11,7 +8,6 @@ export default function VideoPromo() {
       className="relative py-24 overflow-hidden"
       aria-labelledby="promo-heading"
     >
-      {/* Separador top */}
       <div
         className="absolute top-0 left-6 right-6 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, rgba(57,255,106,0.15), transparent)' }}
@@ -20,7 +16,6 @@ export default function VideoPromo() {
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 clamp(1.25rem, 5vw, 3rem)' }}>
 
-        {/* Cabecera */}
         <div className="mb-12">
           <p
             className="text-xs tracking-[0.2em] uppercase mb-3"
@@ -37,7 +32,6 @@ export default function VideoPromo() {
           </h2>
         </div>
 
-        {/* Contenedor del vídeo */}
         <div
           className="relative w-full"
           style={{
@@ -49,7 +43,6 @@ export default function VideoPromo() {
           }}
         >
           {hasVideo ? (
-            /* ── Opción A: vídeo local ── */
             <video
               controls
               preload="metadata"
@@ -60,25 +53,12 @@ export default function VideoPromo() {
               <source src={localVideo} type="video/mp4" />
               Tu navegador no soporta el elemento de vídeo.
             </video>
-
-            /* ── Opción B: YouTube embed (descomenta esto y comenta el bloque anterior) ──
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/TU_VIDEO_ID?rel=0"
-              title="Vídeo de presentación del podcast Kev Podcast"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{ border: 'none', display: 'block' }}
-            />
-            */
           ) : (
-            /* Placeholder hasta grabar el vídeo */
             <div
               className="absolute inset-0 flex flex-col items-center justify-center gap-4"
               role="img"
               aria-label="Espacio reservado para el vídeo de presentación"
             >
-              {/* Icono */}
               <div
                 className="w-16 h-16 flex items-center justify-center"
                 style={{
@@ -94,7 +74,7 @@ export default function VideoPromo() {
               <div className="text-center">
                 <p
                   className="text-sm font-semibold mb-1"
-                  style={{ fontFamily: 'var(--font-display)', color: 'rgba(255,255,255,0.5)' }}
+                  style={{ fontFamily: 'var(--font-display)', color: 'rgba(255,255,255,0.65)' }}
                 >
                   Vídeo próximamente
                 </p>
@@ -102,11 +82,9 @@ export default function VideoPromo() {
                   className="text-xs"
                   style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.2)' }}
                 >
-                  {/* status: PENDING_RECORDING */}
                 </p>
               </div>
 
-              {/* Grid decorativo de fondo */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -119,10 +97,9 @@ export default function VideoPromo() {
           )}
         </div>
 
-        {/* Descripción */}
         <p
           className="mt-5 text-sm leading-relaxed"
-          style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.4)', maxWidth: '640px' }}
+          style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.65)', maxWidth: '640px' }}
         >
           Una presentación breve del podcast: de qué va, por qué Mr. Robot, y qué puedes esperar de los próximos episodios.
         </p>

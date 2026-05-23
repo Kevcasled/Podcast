@@ -60,7 +60,6 @@ export default function AudioPlayer({ src, title, duration }) {
     audio.currentTime = Math.max(0, Math.min(audio.duration || 0, audio.currentTime + secs))
   }
 
-  /* Construye la barra tipo terminal [████░░░░] */
   const BARS   = 16
   const filled = Math.round((progress / 100) * BARS)
   const barStr = '█'.repeat(filled) + '░'.repeat(BARS - filled)
@@ -76,7 +75,6 @@ export default function AudioPlayer({ src, title, duration }) {
         borderRadius: '4px',
       }}
     >
-      {/* Esquina superior derecha decorativa */}
       <div
         className="absolute top-0 right-0 w-6 h-6 pointer-events-none"
         style={{ borderBottom: '1px solid rgba(57,255,106,0.2)', borderLeft: '1px solid rgba(57,255,106,0.2)' }}
@@ -90,15 +88,13 @@ export default function AudioPlayer({ src, title, duration }) {
         onEnded={handleEnded}
       />
 
-      {/* Prompt + título */}
       <p
         className="text-xs mb-3 truncate"
-        style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.35)' }}
+        style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.65)' }}
       >
         <span style={{ color: 'var(--green)' }}>$ </span>{title}
       </p>
 
-      {/* Barra de progreso terminal */}
       <div className="mb-1">
         <div
           className="w-full cursor-pointer py-2"
@@ -129,7 +125,6 @@ export default function AudioPlayer({ src, title, duration }) {
           </div>
         </div>
 
-        {/* Barra ASCII */}
         <p
           className="text-xs select-none"
           aria-hidden="true"
@@ -148,26 +143,23 @@ export default function AudioPlayer({ src, title, duration }) {
         </div>
       </div>
 
-      {/* Controles */}
       <div className="flex items-center justify-between mt-3 gap-1 flex-wrap">
 
-        {/* Skip -15 */}
         <button
           onClick={() => skip(-15)}
           aria-label="Retroceder 15 segundos"
           className="text-xs px-2 py-1 transition-colors duration-150 rounded"
           style={{
             fontFamily: 'var(--font-mono)',
-            color: 'rgba(255,255,255,0.3)',
+            color: 'rgba(255,255,255,0.65)',
             border: '1px solid rgba(255,255,255,0.08)',
           }}
           onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.3)'}
+          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.65)'}
         >
           -15s
         </button>
 
-        {/* Play / Pause */}
         <button
           onClick={togglePlay}
           aria-label={playing ? 'Pausar' : 'Reproducir'}
@@ -184,29 +176,27 @@ export default function AudioPlayer({ src, title, duration }) {
           {playing ? '■ STOP' : '▶ PLAY'}
         </button>
 
-        {/* Skip +15 */}
         <button
           onClick={() => skip(15)}
           aria-label="Avanzar 15 segundos"
           className="text-xs px-2 py-1 transition-colors duration-150 rounded"
           style={{
             fontFamily: 'var(--font-mono)',
-            color: 'rgba(255,255,255,0.3)',
+            color: 'rgba(255,255,255,0.65)',
             border: '1px solid rgba(255,255,255,0.08)',
           }}
           onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.3)'}
+          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.65)'}
         >
           +15s
         </button>
 
-        {/* Volumen */}
         <div className="flex items-center gap-1.5">
           <button
             onClick={toggleMute}
             aria-label={muted ? 'Activar sonido' : 'Silenciar'}
             className="transition-colors"
-            style={{ color: muted ? 'rgba(255,59,59,0.6)' : 'rgba(255,255,255,0.3)' }}
+            style={{ color: muted ? 'rgba(255,59,59,0.6)' : 'rgba(255,255,255,0.65)' }}
           >
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               {muted || volume === 0
