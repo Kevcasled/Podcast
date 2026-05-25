@@ -27,6 +27,9 @@ web/public/audio/
 # PDFs
 *.pdf
 
+# Docs internos
+PLAN.md
+
 # OS
 .DS_Store
 Thumbs.db
